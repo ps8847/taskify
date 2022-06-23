@@ -90,7 +90,7 @@ function completedtasks(index) {
     clicks += 1;
 
     localStorage.setItem("countcomp", clicks);
-    window.setTimeout(function() { $("#taskcomp").modal('hide') }, 3000);
+//     window.setTimeout(function() { $("#taskcomp").modal('hide') }, 3000);
     deletenote2(index);
     showNotes();
 
