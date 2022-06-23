@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="bootstrap/js/bootstrap.js">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="flow" style="background: linear-gradient(to bottom right, #39E9F8, #350DBB);">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="#"><b>Taskify</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link " href="#adddiv">Add new Task</a>
+                <a class="nav-item nav-link " data-toggle="modal" data-target="#totalcompleted" onclick="showcompletedtasktotal()">Completed</a>
+                <!-- <a class="nav-item nav-link " href="#">Pending</a> -->
+                <a class="nav-item nav-link " href="#alltasks">All Tasks</a>
+            </div>
+        </div>
+    </nav>
+    <div id="chooser">
+        <button id="btn1" onclick="blue()"></button>
+        <button id="btn2" onclick="green()"></button>
+        <button id="btn3" onclick="purple()"></button>
+        <button id="btn4" onclick="orange()"></button>
+    </div>
+    <br>
+    <div class="col-md-12 addbox" id="adddiv">
+        <div class="row ">
+            <div class="col-xl-12 col-lg-12">
+                <div class="card l-bg-green-dark" id="cardy">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"></div>
+                        <div class="mb-4">
+                            <form>
+                                <h5 class="card-title mb-2">Title</h5>
+                                <span><input type="text" autofocus id="inputtitle" style="font-weight: bold;" class="form-control"></span>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center mb-2">
+                                    Description
+                                </h2>
+                                <b><textarea id="inputdesc" rows="5" class="form-control" style="resize:none; min-width: 100%; font-weight: bold;"></textarea></b>
+                            </div>
+                            <button type="reset" class="btn btn-outline-light mt-2 ml-5"><i class="fa-solid fa-undo"></i></button>
+                            </form>
+                        </div>
+                        <div id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="d-grid gap-2 mt-2 mb-3 ml-2 mr-2"> -->
+            <button type="submit" name="addnote" id="addbtn" class="btn btn-block btn-light ml-3 mr-3 mt-2"><i class="fa-solid fa-circle-plus mr-2"></i><b>Add Note</b></button>
+            <!-- </div> -->
+        </div>
+    </div>
+    <br>
+    <hr>
+    <h2 class="text-center text-light" style="font-family:Verdana, Geneva, Tahoma, sans-serif; " id="alltasks"><b>Your All Task's</b></h2>
+    <hr>
+    <br>
+    <div class="card-deck" id="maindata">
+
+    </div>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Task Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <label><b>Title</b></label>
+                    <span><input type="text" autofocus id="updatetitle" style="font-weight: bold;" class="form-control"></span>
+                    <br>
+                    <label><b style="font-size:24px;">Description</b></label>
+                    <textarea class="form-control" id="updatedesc" cols="50" rows="5" style="resize: none; font-weight: bold;"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="updatebtn" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModalCenter">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" id="resultmodal">
+                    <h3 class='alert alert-success alert-dismissible fade show mt-3 ml-1 mr-1'>Task Updated successfully!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="taskcomp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3 class='alert alert-success alert-dismissible fade show mt-3 ml-1 mr-1'>Well Done!! Task Completed</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="totalcompleted" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body" id="resultmodal3">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+    {
+        var div = document.getElementById("cardy");
+
+        function orange() {
+            div.setAttribute("class", "l-bg-orange-dark");
+
+        }
+
+        function green() {
+            div.setAttribute("class", "l-bg-green-dark");
+
+        }
+
+        function blue() {
+            div.setAttribute("class", "l-bg-blue-dark");
+
+        }
+
+        function purple() {
+            div.setAttribute("class", "l-bg-cherry");
+        }
+
+    }
+</script>
+
+<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" integrity="sha512-XLo6bQe08irJObCc86rFEKQdcFYbGGIHVXcfMsxpbvF8ompmd1SNJjqVY5hmjQ01Ts0UmmSQGfqpt3fGjm6pGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</html>

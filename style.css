@@ -1,0 +1,102 @@
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.l-bg-cherry {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
+}
+
+.l-bg-blue-dark {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    color: #fff;
+}
+
+.l-bg-green-dark {
+    background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+    color: #fff;
+}
+
+.l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: #fff;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+.l-bg-green {
+    background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+    color: #fff;
+}
+
+.l-bg-orange {
+    background: linear-gradient(to right, #f9900e, #ffba56) !important;
+    color: #fff;
+}
+
+
+/* Created with https://www.css-gradient.com */
+
+.lg-light-blue {
+    color: #39E9F8;
+    /* background: -webkit-linear-gradient(top left, #39E9F8, #350DBB);
+    background: -moz-linear-gradient(top left, #39E9F8, #350DBB); */
+    background: linear-gradient(to bottom right, #39E9F8, #350DBB);
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+#chooser {
+    width: 40%;
+    height: 50px;
+    margin: 10px;
+    display: flex;
+    /* justify-content: space-around; */
+    border-radius: 30px;
+    /* padding: 10px; */
+    /* background: white; */
+}
+
+#chooser button {
+    border-radius: 50%;
+    padding: 25px;
+    border-width: 0ch;
+    margin-right: 2px;
+}
+
+#btn1 {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+}
+
+#btn2 {
+    background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+}
+
+#btn3 {
+    background: linear-gradient(to right, #493240, #f09) !important;
+}
+
+#btn4 {
+    background: linear-gradient(to right, #f9900e, #ffba56) !important;
+}
+
+.flow {
+    overflow-x: hidden;
+}
+
+#counterr {
+    background: red;
+    border-radius: 75%;
+    border: 2px solid yellow;
+    width: 25%;
+}
